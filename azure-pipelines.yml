@@ -76,6 +76,7 @@ stages:
                 script: 'curl -i https://cristiantirel.azurewebsites.net/WeatherForecast'
 
 
+
  - stage: Production
    displayName: Production
    dependsOn: build
