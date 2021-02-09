@@ -70,12 +70,11 @@ stages:
                 appType: 'webApp'
                 WebAppName: 'cristiantirel'
                 packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
-            - task: PowerShell@2
-              inputs: 
+            - task: Bash@3
+              inputs:
                 targetType: 'inline'
-                script: |
-                  # Write your PowerShell commands here.
-                  iwr -uri https://cristiantirel.azurewebsites.net/WeatherForecast
+                script: 'curl -i https://cristiantirel.azurewebsites.net/WeatherForecast'
+
 
  - stage: Production
    displayName: Production
@@ -98,9 +97,7 @@ stages:
                 appType: 'webApp'
                 WebAppName: 'cristiantirel'
                 packageForLinux: '$(Pipeline.Workspace)/**/*.zip'
-            - task: PowerShell@2
-              inputs: 
+            - task: Bash@3
+              inputs:
                 targetType: 'inline'
-                script: |
-                  # Write your PowerShell commands here.
-                  iwr -uri https://cristiantirel.azurewebsites.net/WeatherForecast                  
+                script: 'curl -i https://cristiantirel.azurewebsites.net/WeatherForecast'           
